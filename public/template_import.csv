@@ -1,0 +1,6 @@
+name,email,phoneNumber,address,dateOfBirth,position
+John Doe,john.doe@example.com,08123456789,Jl. Merdeka No. 1,1990-01-15,Software Engineer
+Jane Smith,jane.smith@example.com,08987654321,Jl. Sudirman No. 2,1992-05-20,Project Manager
+Robert Johnson,robert.j@example.com,08555123456,Jl. Gatot Subroto No. 3,1988-12-30,Data Analyst
+Maria Garcia,maria.garcia@example.com,08111222333,Jl. Asia Afrika No. 4,1995-07-25,Marketing Specialist
+

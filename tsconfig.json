@@ -1,0 +1,32 @@
+{
+    "extends": "@tsconfig/node24/tsconfig.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "./dist",
+//        "forceConsistentCasingInFileNames" : true,
+//        "experimentalDecorators": true,
+//        "emitDecoratorMetadata": true,
+//        "noImplicitAny": false,
+//        "noImplicitThis": false
+
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": false,
+        "skipLibCheck": true,
+        "strictPropertyInitialization": false,
+        "allowSyntheticDefaultImports": true,
+        "importHelpers": true,
+        "alwaysStrict": true,
+        "sourceMap": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "strictNullChecks": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "include": ["src/**/*"],
+}

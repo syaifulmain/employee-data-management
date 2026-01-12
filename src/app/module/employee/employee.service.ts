@@ -12,10 +12,17 @@ export class EmployeeService {
   ) {}
 
   /**
-   * Get all employee data
+   * Get all employee data (optionally filter by name)
    */
-  async getAllData() {
-    return this.employeeRepository.find();
+  async getAllData(name?: string) {
+    const qb = this.employeeRepository.createQueryBuilder("employee");
+
+    if (name && name.trim() !== "") {
+      // case-insensitive search on name using parameterized LIKE to avoid injection
+      qb.where("LOWER(employee.name) LIKE :name", { name: `%${name.toLowerCase()}%` });
+    }
+
+    return qb.getMany();
   }
 
   /**

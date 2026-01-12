@@ -63,6 +63,14 @@ export class EmployeeController {
    *   get:
    *     summary: Get all employees
    *     tags: [Employee]
+   *     parameters:
+   *       - in: query
+   *         name: name
+   *         schema:
+   *           type: string
+   *         required: false
+   *         description: Filter employees by name (case-insensitive, partial match)
+   *         example: "john"
    *     responses:
    *       200:
    *         description: Employees retrieved successfully
@@ -104,8 +112,6 @@ export class EmployeeController {
    *         description: Internal server error
    *         content:
    *           application/json:
-   *             schema:
-   *               $ref: '#/components/schemas/ErrorResponse'
    *             example:
    *               responseCode: 500
    *               responseDesc: "Failed"
@@ -113,9 +119,11 @@ export class EmployeeController {
    *               data: null
    */
 
-  getAllData = async (_req, res, next) => {
+  getAllData = async (req, res, next) => {
     try {
-      const employees = await this.employeeService.getAllData();
+      // accept optional `name` query parameter for searching by name
+      const nameQuery = typeof req.query.name === "string" ? req.query.name : undefined;
+      const employees = await this.employeeService.getAllData(nameQuery);
       ResponseSuccessBuilder(
         res,
         200,

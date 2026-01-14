@@ -13,9 +13,9 @@ export async function seedDatabase(AppDataSource: DataSource) {
             await queryRunner.query(`
                 INSERT INTO "employees" (name, email, "phoneNumber", address, "dateOfBirth", "position") VALUES
                 ('John Doe', 'john.doe@example.com', '1234567890', '123 Main St', '1985-01-01', 'Software Engineer'),
-                ('Jane Smith', 'jane.smith@example.com', NULL, '456 Oak Ave', '1990-05-12', 'Product Manager'),
-                ('Bob Johnson', 'bob.j@example.com', '0987654321', NULL, NULL, 'Designer'),
+                ('Bob Johnson', 'bob.j@example.com', '0987654321', NULL, NULL, 'Designer')
             `);
+
             console.log("✅ Employees seeded successfully.");
         } else {
             console.log("✅ Employees already exist — skipping seed.");
